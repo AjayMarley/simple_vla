@@ -1,0 +1,16 @@
+[workspace]
+members  = ["hal", "ipc", "vision"]
+resolver = "2"
+
+[workspace.dependencies]
+zerocopy          = { version = "0.7", features = ["derive"] }
+flatbuffers       = "2.0"      # locked to match apt flatc 2.0.8
+crossbeam-channel = "0.5"
+futures           = "0.3"
+tokio             = { version = "1", features = ["rt-multi-thread", "macros", "sync"] }
+thiserror         = "1"
+
+[profile.release]
+opt-level = 3
+lto       = "fat"
+codegen-units = 1   # maximise inlining across crate boundaries
