@@ -1,0 +1,23 @@
+// Vision frame schema — compile with:
+//   flatc --rust -o ../src/generated/ vision_frame.fbs
+//
+// Pixel layout: packed RGB, row-major, no padding between pixels.
+// `pixels` field is a raw byte vector; zerocopy casts it to [Pixel] in Rust.
+
+namespace vision_ipc;
+
+struct Pixel {
+  r: uint8;
+  g: uint8;
+  b: uint8;
+}
+
+table Frame {
+  timestamp_ns : uint64;   // monotonic clock, nanoseconds
+  width        : uint32;
+  height       : uint32;
+  channels     : uint8;    // 1 = grey, 3 = RGB
+  pixels       : [uint8];  // raw bytes; length = width * height * channels
+}
+
+root_type Frame;
