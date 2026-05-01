@@ -1,0 +1,11 @@
+[package]
+name    = "ipc"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tmq               = "0.4"           # async ZMQ via tokio; requires libzmq3-dev
+tokio             = { workspace = true }
+crossbeam-channel = { workspace = true }
+futures           = { workspace = true }
+thiserror         = { workspace = true }
