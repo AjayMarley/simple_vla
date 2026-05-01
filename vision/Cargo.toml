@@ -1,0 +1,16 @@
+[package]
+name    = "vision"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+ipc               = { path = "../ipc" }
+hal               = { path = "../hal" }
+flatbuffers       = { workspace = true }
+zerocopy          = { workspace = true }
+crossbeam-channel = { workspace = true }
+thiserror         = { workspace = true }
+
+[build-dependencies]
+# Invokes flatc at build time; install: https://github.com/google/flatbuffers/releases
+# or: apt install flatbuffers-compiler
