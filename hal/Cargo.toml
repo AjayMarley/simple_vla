@@ -1,0 +1,8 @@
+[package]
+name    = "hal"
+version = "0.1.0"
+edition = "2021"
+
+# no_std: only core + alloc available; no heap in control loop
+[dependencies]
+zerocopy = { workspace = true }
